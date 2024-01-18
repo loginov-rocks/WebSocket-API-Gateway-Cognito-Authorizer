@@ -1,0 +1,86 @@
+{
+  "headers": {
+    "customHeader": "customHeaderValue",
+    "Host": "abc123.execute-api.us-east-1.amazonaws.com",
+    "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
+    "Sec-WebSocket-Key": "cqMwsKm55ondkJcMg3UU1A==",
+    "Sec-WebSocket-Version": "13",
+    "x-amz-content-sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b856",
+    "x-amz-date": "20231007T030052Z",
+    "x-amz-security-token": "IQoJb3JpZ2luX2VjEHsaCXVzLWVhc3QtMSJHMEUCIBlnjS3aHywkkKwGgC+avqv7czYBJtgmOOFrLoZ76QAiAiEAteWpLJEMvlaQLkHDiKSRbK3kuliale9VJdUuJ8aJ6oIqngMIhP//////////ARAAGgw0NTUyMzE1OTI2MTEiDJos3aU8KiCISgLj/iryAqX4XwmAkgaLudqaYQZz2ti4Zk+U4rPmmAknmoMgCzCYuR3GPJz73P20LnLm8y54iXYJ6XEN/7XeF0Kamei3amN9FhA+gTYTk0DSaC6ZyDf2ArP9mY3ntvPHLn8h/YEvguY1O3kE6x21/HmR88RJxLQHePi/eJA29s8+567CWm12oXF9K9SEyaayOBxgt4mH6EYovc1J7PMPOiqiwGSYwb9ei2Ztne6sudv7WbTtPiWJsd0CoOZkwnI8ZBibyqiCSqQCe4Z2zKw3lE+XncsYuxDw90CXUPuF7Y1/W504c0enGEE9xBizVjAMNCmYKuXdBV54DWLP5wyUEvLeMgcHTWgClM2e1cuu4M8lITU0TWKnQW95MQL0CQ1YY+gabQHkPGPLZ2NoeT3OJ/nf6dvXgxCSaSEhBpUkDU3gIGOo06YPD8p80S5AguK3PyJ5zMURHTaZJUO8r+Kg7YGXKRZWvNpRB3vQGDqj/cBpiTRfRI9+1Uow45ODqQY6nQEuOhFqinRzt08LlobjC1xRC0jJm4mXOT4FMxOZ07G2kTsgXWeydVYdJyJ7Zhb2EaY9VFcJCurex+t/r3br6Ojpy6ohQNHubCGY6sqBt0ZcCSNKEoarCUngssHZl7xdFGowcPDfOljdQYjSjZXl4gu9JeWXKxJXnS4mXvhwbpWXEO8/I0WCbzrJGLzbegL/lo5AlFGoW0d/wZZLjDNv",
+    "X-Amzn-Trace-Id": "Root=1-65a37ed5-4d5fb1690a272fba7295e30c",
+    "X-Forwarded-For": "76.168.99.91",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "customHeader": [
+      "customHeaderValue"
+    ],
+    "Host": [
+      "abc123.execute-api.us-east-1.amazonaws.com"
+    ],
+    "Sec-WebSocket-Extensions": [
+      "permessage-deflate; client_max_window_bits"
+    ],
+    "Sec-WebSocket-Key": [
+      "cqMwsKm55ondkJcMg3UU1A=="
+    ],
+    "Sec-WebSocket-Version": [
+      "13"
+    ],
+    "x-amz-content-sha256": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b856"
+    ],
+    "x-amz-date": [
+      "20231007T030052Z"
+    ],
+    "x-amz-security-token": [
+      "IQoJb3JpZ2luX2VjEHsaCXVzLWVhc3QtMSJHMEUCIBlnjS3aHywkkKwGgC+avqv7czYBJtgmOOFrLoZ76QAiAiEAteWpLJEMvlaQLkHDiKSRbK3kuliale9VJdUuJ8aJ6oIqngMIhP//////////ARAAGgw0NTUyMzE1OTI2MTEiDJos3aU8KiCISgLj/iryAqX4XwmAkgaLudqaYQZz2ti4Zk+U4rPmmAknmoMgCzCYuR3GPJz73P20LnLm8y54iXYJ6XEN/7XeF0Kamei3amN9FhA+gTYTk0DSaC6ZyDf2ArP9mY3ntvPHLn8h/YEvguY1O3kE6x21/HmR88RJxLQHePi/eJA29s8+567CWm12oXF9K9SEyaayOBxgt4mH6EYovc1J7PMPOiqiwGSYwb9ei2Ztne6sudv7WbTtPiWJsd0CoOZkwnI8ZBibyqiCSqQCe4Z2zKw3lE+XncsYuxDw90CXUPuF7Y1/W504c0enGEE9xBizVjAMNCmYKuXdBV54DWLP5wyUEvLeMgcHTWgClM2e1cuu4M8lITU0TWKnQW95MQL0CQ1YY+gabQHkPGPLZ2NoeT3OJ/nf6dvXgxCSaSEhBpUkDU3gIGOo06YPD8p80S5AguK3PyJ5zMURHTaZJUO8r+Kg7YGXKRZWvNpRB3vQGDqj/cBpiTRfRI9+1Uow45ODqQY6nQEuOhFqinRzt08LlobjC1xRC0jJm4mXOT4FMxOZ07G2kTsgXWeydVYdJyJ7Zhb2EaY9VFcJCurex+t/r3br6Ojpy6ohQNHubCGY6sqBt0ZcCSNKEoarCUngssHZl7xdFGowcPDfOljdQYjSjZXl4gu9JeWXKxJXnS4mXvhwbpWXEO8/I0WCbzrJGLzbegL/lo5AlFGoW0d/wZZLjDNv"
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-65a37ed5-4d5fb1690a272fba7295e30c"
+    ],
+    "X-Forwarded-For": [
+      "76.168.99.91"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "queryStringParameters": {
+    "customQueryParameter": "customQueryParameterValue"
+  },
+  "multiValueQueryStringParameters": {
+    "customQueryParameter": [
+      "customQueryParameterValue"
+    ]
+  },
+  "requestContext": {
+    "routeKey": "$connect",
+    "eventType": "CONNECT",
+    "extendedRequestId": "RhDBXH_yoAMF0sQ=",
+    "requestTime": "14/Jan/2024:06:27:33 +0000",
+    "messageDirection": "IN",
+    "stage": "$default",
+    "connectedAt": 1705213653234,
+    "requestTimeEpoch": 1705213653235,
+    "identity": {
+      "principalOrgId": "o-xkztqf9jlg",
+      "userArn": "arn:aws:sts::777845240123:assumed-role/websocket-demo-sign-function-role/websocket-demo-sign-function",
+      "accountId": "777845240123",
+      "caller": "AROA3KGZQOJUGWDCOYXTN:websocket-demo-sign-function",
+      "sourceIp": "76.168.99.91",
+      "accessKey": "ASIA3KGZQOJUM4MJUKUI",
+      "user": "AROA3KGZQOJUGWDCOYXTN:websocket-demo-sign-function"
+    },
+    "requestId": "RhDBXH_yoAMF0sQ=",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "connectionId": "RhDBXdXgIAMCIFQ=",
+    "apiId": "abc123"
+  },
+  "isBase64Encoded": false
+}

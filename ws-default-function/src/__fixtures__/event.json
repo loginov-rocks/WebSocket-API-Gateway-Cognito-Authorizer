@@ -1,0 +1,22 @@
+{
+  "requestContext": {
+    "routeKey": "$default",
+    "messageId": "Rg8LccRkoAMCLag=",
+    "eventType": "MESSAGE",
+    "extendedRequestId": "Rg8LcHikIAMF5Mw=",
+    "requestTime": "14/Jan/2024:05:40:50 +0000",
+    "messageDirection": "IN",
+    "stage": "$default",
+    "connectedAt": 1705210834406,
+    "requestTimeEpoch": 1705210850568,
+    "identity": {
+      "sourceIp": "76.168.99.91"
+    },
+    "requestId": "Rg8LcHikIAMF5Mw=",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "connectionId": "Rg8I7cOZoAMCLag=",
+    "apiId": "abc123"
+  },
+  "body": "Hello, world!",
+  "isBase64Encoded": false
+}

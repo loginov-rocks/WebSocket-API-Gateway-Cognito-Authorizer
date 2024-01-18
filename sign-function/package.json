@@ -1,0 +1,8 @@
+{
+  "peerDependencies": {
+    "@aws-sdk/credential-provider-node": "^3.0.0",
+    "@aws-sdk/hash-node": "^3.0.0",
+    "@aws-sdk/protocol-http": "^3.0.0",
+    "@aws-sdk/signature-v4": "^3.0.0"
+  }
+}

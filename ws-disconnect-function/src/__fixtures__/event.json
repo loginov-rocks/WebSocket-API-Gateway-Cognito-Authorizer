@@ -1,0 +1,42 @@
+{
+  "headers": {
+    "Host": "abc123.execute-api.us-east-1.amazonaws.com",
+    "x-api-key": "",
+    "X-Forwarded-For": "",
+    "x-restapi": ""
+  },
+  "multiValueHeaders": {
+    "Host": [
+      "abc123.execute-api.us-east-1.amazonaws.com"
+    ],
+    "x-api-key": [
+      ""
+    ],
+    "X-Forwarded-For": [
+      ""
+    ],
+    "x-restapi": [
+      ""
+    ]
+  },
+  "requestContext": {
+    "routeKey": "$disconnect",
+    "disconnectStatusCode": 1005,
+    "eventType": "DISCONNECT",
+    "extendedRequestId": "Rg8LoFHWoAMF6WQ=",
+    "requestTime": "14/Jan/2024:05:40:51 +0000",
+    "messageDirection": "IN",
+    "disconnectReason": "Client-side close frame status not set",
+    "stage": "$default",
+    "connectedAt": 1705210834406,
+    "requestTimeEpoch": 1705210851769,
+    "identity": {
+      "sourceIp": "76.168.99.91"
+    },
+    "requestId": "Rg8LoFHWoAMF6WQ=",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "connectionId": "Rg8I7cOZoAMCLag=",
+    "apiId": "abc123"
+  },
+  "isBase64Encoded": false
+}

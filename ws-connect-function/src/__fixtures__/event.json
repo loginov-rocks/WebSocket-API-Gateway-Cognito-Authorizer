@@ -1,0 +1,56 @@
+{
+  "headers": {
+    "Host": "abc123.execute-api.us-east-1.amazonaws.com",
+    "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
+    "Sec-WebSocket-Key": "Z+q+Sez15QDzMRorUQTDig==",
+    "Sec-WebSocket-Version": "13",
+    "X-Amzn-Trace-Id": "Root=1-65a373d2-162060d9361a7ad012f0864d",
+    "X-Forwarded-For": "76.168.99.91",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "Host": [
+      "abc123.execute-api.us-east-1.amazonaws.com"
+    ],
+    "Sec-WebSocket-Extensions": [
+      "permessage-deflate; client_max_window_bits"
+    ],
+    "Sec-WebSocket-Key": [
+      "Z+q+Sez15QDzMRorUQTDig=="
+    ],
+    "Sec-WebSocket-Version": [
+      "13"
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-65a373d2-162060d9361a7ad012f0864d"
+    ],
+    "X-Forwarded-For": [
+      "76.168.99.91"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "requestContext": {
+    "routeKey": "$connect",
+    "eventType": "CONNECT",
+    "extendedRequestId": "Rg8I7Gm-oAMFVTQ=",
+    "requestTime": "14/Jan/2024:05:40:34 +0000",
+    "messageDirection": "IN",
+    "stage": "$default",
+    "connectedAt": 1705210834406,
+    "requestTimeEpoch": 1705210834408,
+    "identity": {
+      "sourceIp": "76.168.99.91"
+    },
+    "requestId": "Rg8I7Gm-oAMFVTQ=",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "connectionId": "Rg8I7cOZoAMCLag=",
+    "apiId": "abc123"
+  },
+  "isBase64Encoded": false
+}

@@ -1,0 +1,31 @@
+{
+  "dynamoDbItem": {
+    "customHeader": "customHeaderValue",
+    "connectionId": "Rg_4Gd9SoAMCEpg=",
+    "clientQueryParameter": "clientQueryParameterValue",
+    "customQueryParameter": "customQueryParameterValue",
+    "clientHeader": "clientHeaderValue"
+  },
+  "event": {
+    "requestContext": {
+      "routeKey": "$default",
+      "messageId": "Rg_4rd97IAMCEpg=",
+      "eventType": "MESSAGE",
+      "extendedRequestId": "Rg_4rGzjoAMF7UQ=",
+      "requestTime": "14/Jan/2024:06:06:08 +0000",
+      "messageDirection": "IN",
+      "stage": "$default",
+      "connectedAt": 1705212365143,
+      "requestTimeEpoch": 1705212368895,
+      "identity": {
+        "sourceIp": "76.168.99.91"
+      },
+      "requestId": "Rg_4rGzjoAMF7UQ=",
+      "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+      "connectionId": "Rg_4Gd9SoAMCEpg=",
+      "apiId": "abc123"
+    },
+    "body": "Hello, world!",
+    "isBase64Encoded": false
+  }
+}

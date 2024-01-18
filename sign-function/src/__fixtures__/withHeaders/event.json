@@ -1,0 +1,39 @@
+{
+  "version": "2.0",
+  "routeKey": "POST /sign",
+  "rawPath": "/sign",
+  "rawQueryString": "",
+  "headers": {
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br",
+    "content-length": "121",
+    "content-type": "application/json",
+    "host": "abc123.execute-api.us-east-1.amazonaws.com",
+    "postman-token": "ca71492e-bc78-4cb2-b379-cb3c9ca55866",
+    "user-agent": "PostmanRuntime/7.36.0",
+    "x-amzn-trace-id": "Root=1-65a35bd3-7b10ceb556727e241d01d4c7",
+    "x-forwarded-for": "76.168.99.91",
+    "x-forwarded-port": "443",
+    "x-forwarded-proto": "https"
+  },
+  "requestContext": {
+    "accountId": "777845240123",
+    "apiId": "abc123",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "domainPrefix": "abc123",
+    "http": {
+      "method": "POST",
+      "path": "/sign",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "76.168.99.91",
+      "userAgent": "PostmanRuntime/7.36.0"
+    },
+    "requestId": "RgtJDicHIAMEJhg=",
+    "routeKey": "POST /sign",
+    "stage": "$default",
+    "time": "14/Jan/2024:03:58:11 +0000",
+    "timeEpoch": 1705204691238
+  },
+  "body": "{\"headers\":{\"clientHeader\":\"clientHeaderValue\"},\"url\":\"wss://abc123.execute-api.us-east-1.amazonaws.com/development\"}",
+  "isBase64Encoded": false
+}
