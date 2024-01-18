@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebSocket API Gateway Cognito Authorizer</title>
+  <script>
+    // Set constants according to the CloudFormation Parameters and Outputs.
+    const USER_POOL_CLIENT_CALLBACK_URL = 'http://localhost:3000';
+    const USER_POOL_CLIENT_ID = '789xyz';
+    const USER_POOL_DOMAIN = 'abc123.auth.us-east-1.amazoncognito.com';
+  </script>
+  <script src="index.mjs" type="module"></script>
+</head>
+
+<body>
+  <h1>Cognito Web Auth</h1>
+  <ol>
+    <li>Make sure constants are properly configured in the <code>index.html</code></li>
+    <li>Click the button to log in using Cognito Hosted UI: <button id="login">Login</button></li>
+    <li>After successful login, auth data will be rendered in the table:</li>
+  </ol>
+  <table style="width: 100%">
+    <tbody>
+      <tr>
+        <th>Access Token</th>
+        <td>
+          <textarea disabled id="access_token" readonly rows="10" style="width: 100%">Pending login...</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>Expires In</th>
+        <td>
+          <input disabled id="expires_in" readonly style="width: 100%" value="Pending login..." />
+        </td>
+      </tr>
+      <tr>
+        <th>ID Token</th>
+        <td>
+          <textarea disabled id="id_token" readonly rows="10" style="width: 100%">Pending login...</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>Refrest Token</th>
+        <td>
+          <textarea disabled id="refresh_token" readonly rows="20" style="width: 100%">Pending login...</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>Token Type</th>
+        <td>
+          <input disabled id="token_type" readonly style="width: 100%" value="Pending login..." />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

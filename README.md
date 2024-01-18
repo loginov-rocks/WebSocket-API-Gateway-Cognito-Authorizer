@@ -1,6 +1,13 @@
-# WebSocket API Gateway IAM Signer
+# WebSocket API Gateway Cognito Authorizer
 
-WebSocket API Gateway IAM Signer.
+WebSocket API Gateway Cognito Authorizer.
+
+## Cognito Web Auth
+
+```sh
+npm i
+npm start
+```
 
 ## Lambda Policy
 
