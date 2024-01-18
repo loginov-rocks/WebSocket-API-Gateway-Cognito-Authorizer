@@ -1,6 +1,16 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Outputs": {
+    "UserPoolClientId": {
+      "Value": {
+        "Ref": "UserPoolClient"
+      }
+    },
+    "UserPoolDomain": {
+      "Value": {
+        "Fn::Sub": "${UserPoolDomain}.auth.${AWS::Region}.amazoncognito.com"
+      }
+    },
     "WebSocketApiUrl": {
       "Value": {
         "Fn::Sub": [
@@ -15,6 +25,17 @@
           }
         ]
       }
+    }
+  },
+  "Parameters": {
+    "UserPoolClientCallbackUrls": {
+      "Default": "http://localhost:3000",
+      "Description": "User Pool Client Callback URLs (comma delimited)",
+      "Type": "CommaDelimitedList"
+    },
+    "UserPoolDomainPrefix": {
+      "Description": "User Pool Domain Prefix",
+      "Type": "String"
     }
   },
   "Resources": {
@@ -142,6 +163,86 @@
         },
         "AutoDeploy": true,
         "StageName": "$default"
+      }
+    },
+    "UserPool": {
+      "Type": "AWS::Cognito::UserPool",
+      "Properties": {
+        "AccountRecoverySetting": {
+          "RecoveryMechanisms": [
+            {
+              "Name": "verified_email",
+              "Priority": 1
+            }
+          ]
+        },
+        "AliasAttributes": [
+          "email"
+        ],
+        "AutoVerifiedAttributes": [
+          "email"
+        ],
+        "DeviceConfiguration": {
+          "DeviceOnlyRememberedOnUserPrompt": false
+        },
+        "Schema": [
+          {
+            "Mutable": true,
+            "Name": "email",
+            "Required": true
+          },
+          {
+            "Mutable": true,
+            "Name": "name",
+            "Required": true
+          }
+        ],
+        "UserAttributeUpdateSettings": {
+          "AttributesRequireVerificationBeforeUpdate": [
+            "email"
+          ]
+        },
+        "UsernameConfiguration": {
+          "CaseSensitive": false
+        }
+      }
+    },
+    "UserPoolClient": {
+      "Type": "AWS::Cognito::UserPoolClient",
+      "Properties": {
+        "AllowedOAuthFlows": [
+          "code"
+        ],
+        "AllowedOAuthFlowsUserPoolClient": true,
+        "AllowedOAuthScopes": [
+          "email",
+          "openid",
+          "profile"
+        ],
+        "CallbackURLs": {
+          "Ref": "UserPoolClientCallbackUrls"
+        },
+        "ExplicitAuthFlows": [
+          "ALLOW_REFRESH_TOKEN_AUTH"
+        ],
+        "PreventUserExistenceErrors": "ENABLED",
+        "SupportedIdentityProviders": [
+          "COGNITO"
+        ],
+        "UserPoolId": {
+          "Ref": "UserPool"
+        }
+      }
+    },
+    "UserPoolDomain": {
+      "Type": "AWS::Cognito::UserPoolDomain",
+      "Properties": {
+        "Domain": {
+          "Ref": "UserPoolDomainPrefix"
+        },
+        "UserPoolId": {
+          "Ref": "UserPool"
+        }
       }
     },
     "ConnectionsTable": {
