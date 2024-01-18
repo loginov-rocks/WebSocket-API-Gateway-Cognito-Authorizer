@@ -13,8 +13,15 @@ export const handler = async (event) => {
 
   // Obtain headers and query parameters added to the request by Sign Function.
   const { headers, queryStringParameters } = event;
-  const { clientHeader, customHeader } = headers;
-  const { clientQueryParameter, customQueryParameter } = queryStringParameters;
+  let clientHeader, clientQueryParameter, customHeader, customQueryParameter;
+
+  if (headers) {
+    ({ clientHeader, customHeader } = headers);
+  }
+
+  if (queryStringParameters) {
+    ({ clientQueryParameter, customQueryParameter } = queryStringParameters);
+  }
 
   const item = {
     connectionId, clientHeader, clientQueryParameter, customHeader, customQueryParameter,
