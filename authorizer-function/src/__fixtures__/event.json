@@ -1,0 +1,76 @@
+{
+  "type": "REQUEST",
+  "methodArn": "arn:aws:execute-api:us-east-1:777845240424:abc123/$default/$connect",
+  "headers": {
+    "authorization": "Test",
+    "Connection": "upgrade",
+    "content-length": "0",
+    "Host": "abc123.execute-api.us-east-1.amazonaws.com",
+    "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
+    "Sec-WebSocket-Key": "B25ZktsAOlz1rDr2za/Z1Q==",
+    "Sec-WebSocket-Version": "13",
+    "Upgrade": "websocket",
+    "X-Amzn-Trace-Id": "Root=1-65ab4b3f-12a683cd6c3094195b151402",
+    "X-Forwarded-For": "76.168.99.91",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "authorization": [
+      "Test"
+    ],
+    "Connection": [
+      "upgrade"
+    ],
+    "content-length": [
+      "0"
+    ],
+    "Host": [
+      "abc123.execute-api.us-east-1.amazonaws.com"
+    ],
+    "Sec-WebSocket-Extensions": [
+      "permessage-deflate; client_max_window_bits"
+    ],
+    "Sec-WebSocket-Key": [
+      "B25ZktsAOlz1rDr2za/Z1Q=="
+    ],
+    "Sec-WebSocket-Version": [
+      "13"
+    ],
+    "Upgrade": [
+      "websocket"
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-65ab4b3f-12a683cd6c3094195b151402"
+    ],
+    "X-Forwarded-For": [
+      "76.168.99.91"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "stageVariables": {},
+  "requestContext": {
+    "routeKey": "$connect",
+    "eventType": "CONNECT",
+    "extendedRequestId": "R0ix6HEuoAMFjWQ=",
+    "requestTime": "20/Jan/2024:04:25:35 +0000",
+    "messageDirection": "IN",
+    "stage": "$default",
+    "connectedAt": 1705724735123,
+    "requestTimeEpoch": 1705724735142,
+    "identity": {
+      "sourceIp": "76.168.99.91"
+    },
+    "requestId": "R0ix6HEuoAMFjWQ=",
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "connectionId": "R0ix6cKAIAMCL2Q=",
+    "apiId": "abc123"
+  }
+}

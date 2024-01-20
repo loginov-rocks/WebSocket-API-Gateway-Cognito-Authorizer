@@ -28,6 +28,11 @@
     }
   },
   "Parameters": {
+    "CognitoAuthorizerIdentitySourceHeaderName": {
+      "Default": "Authorization",
+      "Description": "Cognito Authorizer Identity Source Header Name",
+      "Type": "String"
+    },
     "UserPoolClientCallbackUrls": {
       "Default": "http://localhost:3000",
       "Description": "User Pool Client Callback URLs (comma delimited)",
@@ -47,6 +52,24 @@
         },
         "ProtocolType": "WEBSOCKET",
         "RouteSelectionExpression": "$request.body.action"
+      }
+    },
+    "CognitoAuthorizer": {
+      "Type": "AWS::ApiGatewayV2::Authorizer",
+      "Properties": {
+        "ApiId": {
+          "Ref": "WebSocketApiGateway"
+        },
+        "AuthorizerType": "REQUEST",
+        "AuthorizerUri": {
+          "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AuthorizerFunction}/invocations"
+        },
+        "IdentitySource": [
+          {
+            "Fn::Sub": "route.request.header.${CognitoAuthorizerIdentitySourceHeaderName}"
+          }
+        ],
+        "Name": "Cognito"
       }
     },
     "WsConnectIntegration": {
@@ -124,7 +147,10 @@
         "ApiId": {
           "Ref": "WebSocketApiGateway"
         },
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "CognitoAuthorizer"
+        },
         "RouteKey": "$connect",
         "Target": {
           "Fn::Sub": "integrations/${WsConnectIntegration}"
@@ -263,6 +289,60 @@
         ],
         "TableName": {
           "Fn::Sub": "${AWS::StackName}-connections-table"
+        }
+      }
+    },
+    "AuthorizerFunctionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Action": "logs:CreateLogGroup",
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                  }
+                },
+                {
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Sub": [
+                      "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${FunctionName}:*",
+                      {
+                        "FunctionName": {
+                          "Fn::Sub": "${AWS::StackName}-authorizer-function"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "PolicyName": "AWSLambdaBasicExecutionRole"
+          }
+        ],
+        "RoleName": {
+          "Fn::Sub": "${AWS::StackName}-authorizer-function-role"
         }
       }
     },
@@ -489,6 +569,35 @@
         }
       }
     },
+    "AuthorizerFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Architectures": [
+          "arm64"
+        ],
+        "Code": {
+          "ZipFile": "exports.handler = async (event) => ({ body: JSON.stringify(event), headers: { 'content-type': 'application/json' }, statusCode: 200 });"
+        },
+        "Environment": {
+          "Variables": {
+            "COGNITO_AUTHORIZER_IDENTITY_SOURCE_HEADER_NAME": {
+              "Ref": "CognitoAuthorizerIdentitySourceHeaderName"
+            }
+          }
+        },
+        "FunctionName": {
+          "Fn::Sub": "${AWS::StackName}-authorizer-function"
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "AuthorizerFunctionRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs20.x"
+      }
+    },
     "WsConnectFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -577,6 +686,19 @@
           ]
         },
         "Runtime": "nodejs20.x"
+      }
+    },
+    "AuthorizerFunctionPermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "AuthorizerFunction"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Sub": "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${WebSocketApiGateway}/authorizers/${CognitoAuthorizer}"
+        }
       }
     },
     "WsConnectFunctionPermission": {
