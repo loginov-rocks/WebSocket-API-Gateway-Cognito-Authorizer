@@ -582,6 +582,9 @@
           "Variables": {
             "COGNITO_AUTHORIZER_IDENTITY_SOURCE_HEADER_NAME": {
               "Ref": "CognitoAuthorizerIdentitySourceHeaderName"
+            },
+            "USER_POOL_ID": {
+              "Ref": "UserPool"
             }
           }
         },
@@ -595,7 +598,8 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs20.x"
+        "Runtime": "nodejs20.x",
+        "Timeout": 10
       }
     },
     "WsConnectFunction": {

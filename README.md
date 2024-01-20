@@ -2,6 +2,16 @@
 
 WebSocket API Gateway Cognito Authorizer.
 
+## Authorizer Function
+
+```sh
+npm i
+npm run build
+npm run package
+```
+
+Upload `authorizer-function.zip` as source code for the Lambda.
+
 ## Cognito Web Auth
 
 ```sh
