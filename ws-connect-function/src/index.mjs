@@ -9,22 +9,27 @@ const dynamoDbDocumentClient = DynamoDBDocumentClient.from(dynamoDbClient);
 export const handler = async (event) => {
   console.log('event', JSON.stringify(event));
 
-  const { connectionId } = event.requestContext;
+  const { authorizer, connectionId } = event.requestContext;
 
-  // Obtain headers and query parameters added to the request by Sign Function.
+  // Obtain headers and query parameters added to the request by the client and context value added by the Authorizer
+  // Function.
   const { headers, queryStringParameters } = event;
-  let clientHeader, clientQueryParameter, customHeader, customQueryParameter;
+  let clientHeader, clientQueryParameter, customPayload;
 
   if (headers) {
-    ({ clientHeader, customHeader } = headers);
+    ({ clientHeader } = headers);
   }
 
   if (queryStringParameters) {
-    ({ clientQueryParameter, customQueryParameter } = queryStringParameters);
+    ({ clientQueryParameter } = queryStringParameters);
+  }
+
+  if (authorizer) {
+    ({ customPayload } = authorizer);
   }
 
   const item = {
-    connectionId, clientHeader, clientQueryParameter, customHeader, customQueryParameter,
+    connectionId, clientHeader, clientQueryParameter, customPayload,
   };
 
   const putCommand = new PutCommand({

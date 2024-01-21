@@ -50,7 +50,3 @@ npm install -g wscat
 ```sh
 wscat -c 'wss://abc123.execute-api.us-east-1.amazonaws.com/$default'
 ```
-
-## Reference
-
-* [Use API Gateway Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)

@@ -1,14 +1,30 @@
 {
   "dynamoDbItem": {
-    "customHeader": "customHeaderValue",
     "connectionId": "Rg_4Gd9SoAMCEpg=",
     "clientQueryParameter": "clientQueryParameterValue",
-    "customQueryParameter": "customQueryParameterValue",
+    "customPayload": "customPayloadValue",
     "clientHeader": "clientHeaderValue"
   },
   "event": {
     "requestContext": {
       "routeKey": "$default",
+      "authorizer": {
+        "sub": "1d7856e9-7bd7-45fe-beb1-77798de950bc",
+        "iss": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_abc123",
+        "principalId": "user",
+        "version": "2",
+        "client_id": "281794089m6k93mrbcvsd1o5jn",
+        "origin_jti": "323decee-01d5-4c0a-b86e-8fa0e44b88a9",
+        "event_id": "7c659f99-9598-4e9e-aba9-ac0088502953",
+        "token_use": "access",
+        "scope": "openid profile email",
+        "auth_time": "1705726879",
+        "exp": "1705730479",
+        "iat": "1705726880",
+        "customPayload": "customPayloadValue",
+        "jti": "834587a8-763b-4c2d-9641-f65d89613767",
+        "username": "loginov-rocks"
+      },
       "messageId": "Rg_4rd97IAMCEpg=",
       "eventType": "MESSAGE",
       "extendedRequestId": "Rg_4rGzjoAMF7UQ=",

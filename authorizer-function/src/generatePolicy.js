@@ -1,3 +1,6 @@
+/**
+ * @see https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html
+ */
 const generatePolicy = (principalId, effect, resource, context) => ({
   context,
   policyDocument: {

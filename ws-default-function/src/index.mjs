@@ -37,8 +37,8 @@ export const handler = async (event) => {
     return { statusCode: 404 };
   }
 
-  // Respond to the incoming message with data, DynamoDB item will have headers and query parameters added to the
-  // request by Sign Function.
+  // Respond to the incoming message with data, DynamoDB item will have headers, query parameters, and context value
+  // added to the request by the Authorizer Function.
   const data = JSON.stringify({
     dynamoDbItem: getCommandResponse.Item,
     event,

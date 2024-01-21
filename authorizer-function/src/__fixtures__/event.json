@@ -1,8 +1,9 @@
 {
   "type": "REQUEST",
-  "methodArn": "arn:aws:execute-api:us-east-1:777845240424:abc123/$default/$connect",
+  "methodArn": "arn:aws:execute-api:us-east-1:777845240123:abc123/$default/$connect",
   "headers": {
     "authorization": "Bearer eyJraWQiOiJSWmhsTDRLaVpiU1Q3WnRDeVRGT01yYUxjbEh4ZElkN2RaZjBcLzV5V3dVMD0iLCJhbGciOiJSUzI1NiJ9",
+    "clientHeader": "clientHeaderValue",
     "Connection": "upgrade",
     "content-length": "0",
     "Host": "abc123.execute-api.us-east-1.amazonaws.com",
@@ -18,6 +19,9 @@
   "multiValueHeaders": {
     "authorization": [
       "Bearer eyJraWQiOiJSWmhsTDRLaVpiU1Q3WnRDeVRGT01yYUxjbEh4ZElkN2RaZjBcLzV5V3dVMD0iLCJhbGciOiJSUzI1NiJ9"
+    ],
+    "clientHeader": [
+      "clientHeaderValue"
     ],
     "Connection": [
       "upgrade"
@@ -53,8 +57,14 @@
       "https"
     ]
   },
-  "queryStringParameters": {},
-  "multiValueQueryStringParameters": {},
+  "queryStringParameters": {
+    "clientQueryParameter": "clientQueryParameterValue"
+  },
+  "multiValueQueryStringParameters": {
+    "clientQueryParameter": [
+      "clientQueryParameterValue"
+    ]
+  },
   "stageVariables": {},
   "requestContext": {
     "routeKey": "$connect",

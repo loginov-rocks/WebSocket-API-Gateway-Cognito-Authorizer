@@ -1,4 +1,4 @@
-import { generateAllowPolicy, generateDenyPolicy } from './generatePolicy';
+import { generateAllowPolicy /*, generateDenyPolicy */ } from './generatePolicy';
 import { verifyToken } from './verifyToken';
 
 // Environment variable provided by AWS.
@@ -14,12 +14,12 @@ exports.handler = async (event) => {
   const { headers } = event;
   const identitySourceHeader = headers[COGNITO_AUTHORIZER_IDENTITY_SOURCE_HEADER_NAME.toLowerCase()];
 
-  if (!identitySourceHeader) {
+  // `identitySourceHeader` should be present and have the following format: `Bearer JWT`.
+  if (!identitySourceHeader || identitySourceHeader.substring(0, 7) !== 'Bearer ') {
     return 'Unauthorized';
   }
 
-  // `identitySourceHeader` should have the following format: `Bearer JWT`.
-  const [, token] = identitySourceHeader.split(' ');
+  const token = identitySourceHeader.substring(7);
 
   if (!token) {
     return 'Unauthorized';
@@ -31,8 +31,11 @@ exports.handler = async (event) => {
     return 'Unauthorized';
   }
 
+  console.log('verifyTokenResponse', JSON.stringify(verifyTokenResponse));
+
   // Optionally: use `verifyTokenResponse` data to allow or deny (with `generateDenyPolicy()`) user access based on
-  // business requirements.
+  // your business requirements. You can also add whatever context payload you'd like - it will be available in every
+  // WS lambda call.
   const policy = generateAllowPolicy('user', event.methodArn, {
     ...verifyTokenResponse,
     customPayload: 'customPayloadValue',
