@@ -1,8 +1,6 @@
 # WebSocket API Gateway Cognito Authorizer
 
-WebSocket API Gateway Cognito Authorizer.
-
-Medium: https://loginov-rocks.medium.com/authorize-access-to-websocket-api-gateway-with-cognito-d7c0d35e7e89
+Authorize Access to WebSocket API Gateway with Cognito: [Medium](https://loginov-rocks.medium.com/authorize-access-to-websocket-api-gateway-with-cognito-d7c0d35e7e89)
 
 ## Authorizer Function
 
